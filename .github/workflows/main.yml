@@ -1,1 +1,14 @@
+name: Deploy Fake
+on:
+ repository_dispatch:
+      types:
+        - deploy-remoto
+jobs:
+   deploy-k8s:
+        runs-on: ubuntu-latest
+        steps:
+           - name: Deploy ambiente
+             run: echo "Executando o deploy no ambiente ${{ github.event.client_payload.ambiente}}"     
+           - name: Nova Etapa
+             run: echo "Executando o deploy no ambiente ${{github.event.client_payload.ambiente}}"   
 
